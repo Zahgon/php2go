@@ -1,34 +1,15 @@
 // php2go functions
 
+//go:build linux || darwin
 // +build linux darwin
 
 package php2go
 
-import (
-	"syscall"
-)
-
 // Umask umask()
-func Umask(mask int) int {
-	return syscall.Umask(mask)
-}
+func Umask(mask int) int { _ = "STUB: not implemented"; return 0 }
 
 // DiskFreeSpace disk_free_space()
-func DiskFreeSpace(directory string) (uint64, error) {
-	fs := syscall.Statfs_t{}
-	err := syscall.Statfs(directory, &fs)
-	if err != nil {
-		return 0, err
-	}
-	return fs.Bfree * uint64(fs.Bsize), nil
-}
+func DiskFreeSpace(directory string) (uint64, error) { _ = "STUB: not implemented"; return 0, nil }
 
 // DiskTotalSpace disk_total_space()
-func DiskTotalSpace(directory string) (uint64, error) {
-	fs := syscall.Statfs_t{}
-	err := syscall.Statfs(directory, &fs)
-	if err != nil {
-		return 0, err
-	}
-	return fs.Blocks * uint64(fs.Bsize), nil
-}
+func DiskTotalSpace(directory string) (uint64, error) { _ = "STUB: not implemented"; return 0, nil }
